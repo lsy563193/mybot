@@ -1,0 +1,45 @@
+<launch>
+    <!--<arg name="base"       default="create"/>  &lt;!&ndash; create, rhoomba &ndash;&gt;-->
+    <!--<arg name="battery"    default="$(optenv TURTLEBOT_BATTERY /proc/acpi/battery/BAT0)"/>  &lt;!&ndash; /proc/acpi/battery/BAT0 &ndash;&gt;-->
+    <!--<arg name="stacks"     default="circles"/>  &lt;!&ndash; circles, hexagons &ndash;&gt;-->
+    <!--<arg name="3d_sensor"  default="kinect"/>  &lt;!&ndash; kinect, asus_xtion_pro &ndash;&gt;-->
+    <!--<arg name="simulation" default="$(optenv TURTLEBOT_SIMULATION false)"/>-->
+    <!---->
+    <!--<param name="/use_sim_time" value="$(arg simulation)"/>-->
+    <!---->
+    <!--<include file="$(find turtlebot_bringup)/launch/includes/robot.launch.xml">-->
+    <!--<arg name="base" value="$(arg base)" />-->
+    <!--<arg name="stacks" value="$(arg stacks)" />-->
+    <!--<arg name="3d_sensor" value="$(arg 3d_sensor)" />-->
+    <!--</include>-->
+    <!---->
+    <!--<include file="$(find mybot_bringup)/launch/includes/tb_create_mobile_base.launch.xml" />-->
+    <!---->
+    <!--<include file="$(find turtlebot_bringup)/launch/includes/netbook.launch.xml">-->
+    <!--<arg name="battery" value="$(arg battery)" />-->
+    <!--</include>-->
+
+    <!--<param name="robot_description"-->
+    <!--command="$(find xacro)/xacro.py  '$(find mybot_pathplanning)/urdf/aicleanrobot.urdf'"/>-->
+
+    <!--<arg name="urdf_file" default="$(find xacro)/xacro.py  '$(find mybot_pathplanning)/urdf/aicleanrobot.urdf'"/>-->
+    <!--<param name="robot_description" command="$(arg urdf_file)"/>-->
+
+    <arg name="urdf_file" default="$(find xacro)/xacro.py '$(find mybot_description)/urdf/turtlebot.urdf.xacro'" />
+    <param name="robot_description" command="$(arg urdf_file)" />
+
+    <!--<node name="robot_driver" pkg="mybot_pathplanning" type="robotdriver.py" output="screen"/>-->
+    <!--<node name="publish_odometry" pkg="mybot_pathplanning" type="publish_odometry" output="screen" />-->
+
+    <node name="arbotix" pkg="arbotix_python" type="arbotix_driver" output="screen" clear_params="true">
+        <rosparam file="$(find mybot_bringup)/config/fake_turtlebot_arbotix.yaml" command="load"/>
+        <param name="sim" value="true"/>
+    </node>
+
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher">
+        <param name="publish_frequency" type="double" value="20"/>
+    </node>
+
+
+</launch>

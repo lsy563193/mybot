@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<launch>
+    <param name="robot_description" command="$(find xacro)/xacro.py  '$(find mybot)/urdf/aicleanrobot.urdf'" />
+
+    <include file="$(find lds_lidar)/launch/ldslidar.launch" />
+
+    <node name="publish_odometry" pkg="mybot" type="publish_odometry" output="screen" />
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher">
+        <param name="publish_frequency" type="double" value="20"/>
+    </node>
+    <node name="robot_driver" pkg="mybot" type="robotdriver.py" output="screen"  />
+    <include file="$(find mybot)/launch/tf.launch" />
+    <include file="$(find mybot)/launch/map_server.launch" />
+    <include file="$(find mybot)/launch/move_base.launch" />
+    <include file="$(find mybot)/launch/gmapping.launch"/>
+    <include file="$(find mybot)/launch/amcl.launch" /> 
+
+</launch>

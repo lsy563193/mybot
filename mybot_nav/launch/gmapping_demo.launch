@@ -1,0 +1,6 @@
+<launch>
+  <include file="$(find mybot_nav)/launch/gmapping.launch"/>
+
+  <include file="$(find mybot_nav)/launch/tb_move_base.launch"/>
+
+</launch>

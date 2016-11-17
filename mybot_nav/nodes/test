@@ -1,0 +1,55 @@
+header:
+  seq: 1
+  stamp:
+    secs: 1478241246
+    nsecs: 571238994
+  frame_id: odom
+ns: waypoints
+id: 0
+type: 6
+action: 0
+pose:
+  position:
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  orientation:
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 0.0
+scale:
+  x: 0.2
+  y: 0.2
+  z: 0.0
+color:
+  r: 1.0
+  g: 0.699999988079
+  b: 1.0
+  a: 1.0
+lifetime:
+  secs: 0
+  nsecs:         0
+frame_locked: False
+points:
+  -
+    x: 1.0
+    y: 0.0
+    z: 0.0
+  -
+    x: 1.0
+    y: 1.0
+    z: 0.0
+  -
+    x: 0.0
+    y: 1.0
+    z: 0.0
+  -
+    x: 0.0
+    y: 0.0
+    z: 0.0
+colors: []
+text: ''
+mesh_resource: ''
+mesh_use_embedded_materials: False
+

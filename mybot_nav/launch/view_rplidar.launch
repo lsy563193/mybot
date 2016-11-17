@@ -1,0 +1,27 @@
+<!--
+  Used for visualising rplidar in action.  
+  
+  It requires rplidar.launch.
+ -->
+<launch>
+  <include file="$(find mybot_bringup)/launch/fake_turtlebot.launch" />
+
+  <include file="$(find rplidar_ros)/launch/rplidar.launch" />
+
+  <include file="$(find mybot_nav)/launch/fake_move_base.launch" />
+  <node pkg="tf" type="static_transform_publisher" name="odom_map_broadcaster" args="0 0 0 0 0 0 /map /odom 100" />
+
+
+  <!--<node name="publish_odometry" pkg="mybot" type="publish_odometry" output="screen" />-->
+
+  <include file="$(find mybot_nav)/launch/gmapping.launch"/>
+
+  <include file="$(find mybot_nav)/launch/tb_amcl.launch" />
+
+  <!--<include file="$(find world_canvas_server)/launch/world_canvas_server.launch" />-->
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find mybot_nav)/nav.rviz" />
+
+  <node pkg="laser_lines" type="laser_lines" respawn="true" name="laser_lines" output="screen"/>
+
+</launch>

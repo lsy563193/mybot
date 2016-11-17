@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+  <param name="robot_description" command="$(find xacro)/xacro  '$(find mybot)/urdf/aicleanrobot.urdf'" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher">
+    <param name="publish_frequency" value="20.0"/>
+  </node>
+  <node name="robot_bridge" pkg="mybot" type="robotdriver.py" output="screen" />
+  <node name="publish_odom" pkg="mybot" type="publish_odometry" output="screen"  />
+</launch>
