@@ -1,7 +1,7 @@
 #include <ros/ros.h>
 #include <tf/transform_broadcaster.h>
 #include <nav_msgs/Odometry.h>
-#include <mybot/carOdom.h>
+#include <mybot_pathplanning/carOdom.h>
 //goal:subscribe the car_speed, then send them
 class SubscribeAndPublish
 {
@@ -24,7 +24,7 @@ public:
     sub_ = n_.subscribe("car_speed", 1, &SubscribeAndPublish::callback, this);
   }
 
-  void callback(const mybot::carOdom::ConstPtr& input)
+  void callback(const mybot_pathplanning::carOdom::ConstPtr& input)
   {
     //nav_msgs::Odometry output;
     //.... do something with the input and generate the output...
