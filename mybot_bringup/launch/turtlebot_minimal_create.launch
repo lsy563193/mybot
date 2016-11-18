@@ -27,12 +27,16 @@
 
     <param name="robot_description"
            command="$(find xacro)/xacro.py  '$(find mybot_pathplanning)/urdf/aicleanrobot.urdf'"/>
+
     <node name="robot_driver" pkg="mybot_pathplanning" type="robotdriver.py" output="screen"/>
     <node name="publish_odometry" pkg="mybot_pathplanning" type="publish_odometry" output="screen" />
 
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher">
     <param name="publish_frequency" type="double" value="20"/>
     </node>
+
+    <!--<node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="0 0 0 3.141592654 0 0 base_link laser 100" />-->
+    <include file="$(find mybot_pathplanning)/launch/tf.launch" />
 
 
 </launch>

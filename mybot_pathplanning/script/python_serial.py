@@ -5,7 +5,7 @@ import rospy
 import serial
 import threading 
 import time
-from  mybot.msg import Num       #mybot 为自己建立的package,放在catkin_ws/src下
+from  mybot_pathplanning.msg import Num       #mybot 为自己建立的package,放在catkin_ws/src下
 import Queue
 
 #import serial_lisenning as COM_ctr            #串口模块，已经封装好，模块里是开线程不断读取串口

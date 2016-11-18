@@ -7,8 +7,8 @@ import rospy
 import tf.transformations
 from geometry_msgs.msg import Twist
 from python_serial import *
-from  mybot.msg import Num  # beginner_tutorials 为自己建立的package,放在catkin_ws/src下
-from  mybot.msg import carOdom  # beginner_tutorials 为自己建立的package,放在catkin_ws/src下
+from  mybot_pathplanning.msg import Num  # beginner_tutorials 为自己建立的package,放在catkin_ws/src下
+from  mybot_pathplanning.msg import carOdom  # beginner_tutorials 为自己建立的package,放在catkin_ws/src下
 import os
 import time
 import binascii

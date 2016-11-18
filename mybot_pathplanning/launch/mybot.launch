@@ -1,13 +1,11 @@
 <?xml version="1.0"?>
 <launch>
 
-    <include file="$(find mybot_bringup)/launch/fake_turtlebot.launch" />
-    <!--<include file="$(find mybot_bringup)/launch/turtlebot_minimal_create.launch" />-->
+    <!--<include file="$(find mybot_bringup)/launch/fake_turtlebot.launch" />-->
+    <include file="$(find mybot_bringup)/launch/turtlebot_minimal_create.launch" />
 
     <include file="$(find rplidar_ros)/launch/rplidar.launch" />
 
-    <!--<include file="$(find mybot_pathplanning)/launch/tf.launch" />-->
-    <node pkg="tf" type="static_transform_publisher" name="odom_map_broadcaster" args="0 0 0 0 0 0 /map /odom 100" />
     <!--<include file="$(find mybot_pathplanning)/launch/map_server.launch" />-->
     <include file="$(find mybot_pathplanning)/launch/move_base.launch" />
 
@@ -17,7 +15,6 @@
 
     <!--<include file="$(find world_canvas_server)/launch/world_canvas_server.launch" />-->
 
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find mybot_nav)/nav.rviz" />
     <node pkg="laser_lines" type="laser_lines" respawn="true" name="laser_lines" output="screen"/>
 
 </launch>
