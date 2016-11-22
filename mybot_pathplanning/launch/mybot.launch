@@ -17,4 +17,5 @@
 
     <node pkg="laser_lines" type="laser_lines" respawn="true" name="laser_lines" output="screen"/>
 
+    <include file="$(find obstacle_detector)/launch/single_scanner.launch" />
 </launch>

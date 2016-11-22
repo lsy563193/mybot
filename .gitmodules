@@ -1,3 +1,6 @@
 [submodule "laser_lines"]
 	path = laser_lines
 	url = https://github.com/lsy563193/laser_lines.git
+[submodule "obstacle_detector"]
+	path = obstacle_detector
+	url = https://github.com/lsy563193/obstacle_detector

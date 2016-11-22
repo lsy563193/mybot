@@ -23,6 +23,7 @@
   <run_depend>mybot_vision</run_depend>
   <run_depend>mybot_pathplanning</run_depend>
   <run_depend>laser_lines</run_depend>
+  <run_depend>obstacle_detector</run_depend>
 
   <export>
     <metapackage/>
